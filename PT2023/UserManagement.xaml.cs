@@ -142,7 +142,10 @@ namespace PT2023
             usersPathVideos = System.IO.Path.Combine(presentationPath, "Videos");
             usersPathLogs = System.IO.Path.Combine(presentationPath, "Logs");
 
-            MainWindow.scriptPath = System.IO.Path.Combine(usersPathScripts + "\\Script.txt");
+            string executingDirectory = Directory.GetCurrentDirectory();
+            string scriptsPath = System.IO.Path.Combine(executingDirectory, "Scripts");
+            MainWindow.scriptPath = System.IO.Path.Combine(scriptsPath, "Script.txt");
+
 
             bool exists = System.IO.Directory.Exists(presentationPath);
             if (!exists)

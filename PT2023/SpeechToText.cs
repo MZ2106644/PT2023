@@ -22,7 +22,7 @@ namespace PT2023
         public  static List<Word> words = new List<Word>();
 
 
-        private string currentLanguage = "en-GB";
+        private string currentLanguage = "en-US";
 
         public delegate void SpeechRecognized(object sender, string text);
         public event SpeechRecognized speechRecognizedEvent;
