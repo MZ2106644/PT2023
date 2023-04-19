@@ -45,7 +45,7 @@ namespace PT2023
         public delegate void ExitEvent(object sender, string x);
         public event ExitEvent exitEvent;
 
-
+        RecordingClass recordingClass;
         private VideoCapture m_Webcam;
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace PT2023
 
             initTFstuff();
             initWebcam();
-
+            
             rulesAnaliserFIFO.feedBackEvent += RulesAnaliserFIFO_feedBackEvent;
             rulesAnaliserFIFO.correctionEvent += RulesAnaliserFIFO_correctionEvent;
 
@@ -727,6 +727,12 @@ namespace PT2023
         {
             practiceSession = new PracticeSession();
             practiceSession.scriptVisible = withScript;
+
+            // Start VIDEO stuff
+            recordingClass = new RecordingClass(practiceSession.videoId);
+            recordingClass.startRecording();
+            //End video Stuff
+
             foreach (Word word in SpeechToText.words)
             {
                 IdentifiedSentence identifiedSentence = new IdentifiedSentence(word.Text);
@@ -753,7 +759,8 @@ namespace PT2023
         }
         private void finishLoggingStuff()
         {
-            saveToJSON();
+            // saveToJSON();
+            practiceSession.end = DateTime.Now;
             string path = System.IO.Path.Combine(UserManagement.usersPathLogs + "\\PracticeSession.json");
             if (!File.Exists(path))
             {
@@ -778,6 +785,8 @@ namespace PT2023
                 string myString = Newtonsoft.Json.JsonConvert.SerializeObject(sessions);
                 File.WriteAllText(path, myString);
             }
+            recordingClass.stopRecording();
+            recordingClass.combineFiles();
         }
 
         #endregion
