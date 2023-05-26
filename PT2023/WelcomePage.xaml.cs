@@ -28,7 +28,7 @@ namespace PT2023
     {
 
         FilterInfoCollection connectedDevices;
-        public  VolumeCalibration volumeCalibration;
+        public VolumeCalibration volumeCalibration;
         public PracticeMode practiceMode;
         public WorkingWithScript workingWithScript;
         public MemoryScript memoryScript;
@@ -36,6 +36,7 @@ namespace PT2023
         public PracticeSentences practiceSentences;
         public UserManagement userManagement;
         public ReviewPractice reviewPractice;
+        public PresentationTips presentationTips;
 
         #region speech stuff
         private SpeechToText speechToText;
@@ -51,12 +52,12 @@ namespace PT2023
 
             volumeAnalysis = new VolumeAnalysis();
 
-           // initSpeech();
+            // initSpeech();
 
             connectedDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach(FilterInfo fi in connectedDevices)
+            foreach (FilterInfo fi in connectedDevices)
             {
-                
+
                 cameraSelector.Items.Add(fi.Name);
             }
             cameraSelector.SelectedIndex = 0;
@@ -68,14 +69,14 @@ namespace PT2023
             volumeCalibration.HorizontalAlignment = HorizontalAlignment.Left;
 
             addUserMagangement();
-            
+
         }
 
         #region Speech Analysis Init and delete
         public void initSpeech()
         {
 
-            speechToText = new SpeechToText();
+            speechToText = new SpeechToText(languageSelector);
             speechToText.speechRecognizedEvent += SpeechRecognition_speechRecognizedEvent;
             speechToText.volumeReceivedEvent += SpeechRecognition_volumeReceivedEvent;
         }
@@ -91,31 +92,31 @@ namespace PT2023
 
         private void SpeechRecognition_speechRecognizedEvent(object sender, string text)
         {
-           
-            if(practiceMode!=null)
+
+            if (practiceMode != null)
             {
-                if(practiceMode.Visibility==Visibility.Visible)
+                if (practiceMode.Visibility == Visibility.Visible)
                 {
                     practiceMode.recognizedWord(text);
                 }
-                
+
             }
 
-            if(memoryScript!=null)
+            if (memoryScript != null)
             {
-                if(memoryScript.Visibility==Visibility.Visible)
+                if (memoryScript.Visibility == Visibility.Visible)
                 {
                     memoryScript.recongnizedWord(text);
                 }
-                
+
             }
-            if(practiceSentences!=null)
+            if (practiceSentences != null)
             {
-                if(practiceSentences.Visibility==Visibility.Visible)
+                if (practiceSentences.Visibility == Visibility.Visible)
                 {
                     practiceSentences.recognizedWord(text);
                 }
-                
+
             }
             if (memoryScript2 != null)
             {
@@ -131,8 +132,8 @@ namespace PT2023
 
         public void restartSpeech()
         {
-           
-           
+
+
             Dispatcher.BeginInvoke(new System.Threading.ThreadStart(delegate {
                 initSpeech();
             }));
@@ -148,10 +149,10 @@ namespace PT2023
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-            if(volumeCalibration.Visibility != Visibility.Visible)
+
+            if (volumeCalibration.Visibility != Visibility.Visible)
             {
-                
+
                 volumeCalibration.Visibility = Visibility.Visible;
 
             }
@@ -159,7 +160,7 @@ namespace PT2023
             {
                 volumeCalibration.Visibility = Visibility.Collapsed;
             }
-            
+
         }
 
         #region handling selections
@@ -183,22 +184,22 @@ namespace PT2023
             Grid_for_Mode_Selection.Visibility = Visibility.Collapsed;
         }
 
-        
+
 
         private void addPracticeMode()
         {
             practiceMode = new PracticeMode();
-            if(checkBoxScript.IsChecked==true)
+            if (checkBoxScript.IsChecked == true)
             {
                 practiceMode.setWithScript();
             }
-            if(checkBoxSkeleton.IsChecked==true)
+            if (checkBoxSkeleton.IsChecked == true)
             {
                 practiceMode.showSkeleton = true;
             }
             myGrid.Children.Add(practiceMode);
-           
-            
+
+
             practiceMode.Margin = new Thickness(0, 0, 0, 0);
             practiceMode.VerticalAlignment = VerticalAlignment.Center;
             practiceMode.HorizontalAlignment = HorizontalAlignment.Center;
@@ -222,8 +223,8 @@ namespace PT2023
             workingWithScript.VerticalAlignment = VerticalAlignment.Center;
             workingWithScript.HorizontalAlignment = HorizontalAlignment.Center;
             workingWithScript.Visibility = Visibility.Visible;
-           
-            workingWithScript.exitEvent += WorkingWithScript_exitEvent; 
+
+            workingWithScript.exitEvent += WorkingWithScript_exitEvent;
         }
 
         private void Button_add_Memory_Click(object sender, RoutedEventArgs e)
@@ -232,7 +233,7 @@ namespace PT2023
             memoryScript2 = new MemoryScript2();
             myGrid.Children.Add(memoryScript2);
             memoryScript2.Margin = new Thickness(0, 0, 0, 0);
-            memoryScript2.VerticalAlignment = VerticalAlignment.Center;      
+            memoryScript2.VerticalAlignment = VerticalAlignment.Center;
             memoryScript2.HorizontalAlignment = HorizontalAlignment.Center;
             WelcomePage.currentWord = 0;
             memoryScript2.exitEvent += MemoryScript2_exitEvent;
@@ -254,7 +255,7 @@ namespace PT2023
             practiceSentences.VerticalAlignment = VerticalAlignment.Center;
             practiceSentences.HorizontalAlignment = HorizontalAlignment.Center;
             practiceSentences.exitEvent += PracticeSentences_exitEvent;
-            WelcomePage.currentWord= 0;
+            WelcomePage.currentWord = 0;
         }
 
         private void Button_Review_Practice_Click(object sender, RoutedEventArgs e)
@@ -269,7 +270,16 @@ namespace PT2023
 
         }
 
-      
+        private void Button_Presentation_Tips_Click(object sender, RoutedEventArgs e)
+        {
+            Grid_for_Mode_Selection.Visibility = Visibility.Collapsed;
+            presentationTips = new PresentationTips();
+            myGrid.Children.Add(presentationTips);
+            presentationTips.Margin = new Thickness(0, 0, 0, 0);
+            presentationTips.VerticalAlignment = VerticalAlignment.Center;
+            presentationTips.HorizontalAlignment = HorizontalAlignment.Center;
+            presentationTips.exitEvent += PresentationTips_exitEvent;
+        }
 
 
         #endregion
@@ -342,10 +352,18 @@ namespace PT2023
             }));
         }
 
+        private void PresentationTips_exitEvent(object sender, string x)
+        {
+            Dispatcher.BeginInvoke(new System.Threading.ThreadStart(delegate {
+                presentationTips.Visibility = Visibility.Collapsed;
+                myGrid.Children.Remove(presentationTips);
+                Grid_for_Mode_Selection.Visibility = Visibility.Visible;
+            }));
+        }
 
         #endregion
 
-        
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -384,5 +402,18 @@ namespace PT2023
         }
 
         #endregion
+
+        private void languageSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Check if the selected item is a ComboBoxItem
+            if (languageSelector.SelectedItem is ComboBoxItem comboBoxItem)
+            {
+                // Get the language tag from the Tag property of the ComboBoxItem
+                string languageTag = comboBoxItem.Tag as string;
+
+                // Update the selected language in the speech-to-text instance
+                speechToText.UpdateSelectedLanguage(languageTag);
+            }
+        }
     }
 }

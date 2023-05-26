@@ -55,6 +55,14 @@
                
             </Grid>
 
+            <Grid Name="PresentationTipsGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="494,232,0,0" Width="200" >
+                <Image Source="Images\container4.png"  Stretch="Fill"  />
+                <Button Name="Button_Presentation_Tips"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="70" Width="70" Click="Button_Presentation_Tips_Click">
+                    <Image Source="Images/btn_speaking.png" />
+                </Button>
+                <Label Content="Get presentation tips" FontSize="13" HorizontalAlignment="Left" Margin="10,00,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
+
+            </Grid>
 
         </Grid>
         <Rectangle VerticalAlignment="Bottom" Height="70" Fill="White" Opacity="0.3"></Rectangle>
@@ -126,8 +134,8 @@
             </Button.Style>
             <Image Name="buttonExitImg" Source="Images/btn_exit1.png" />
         </Button>
-
-        
+        <Label Content="Select Language" HorizontalAlignment="Left" Margin="422,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="White"/>
+            <ComboBox Name="languageSelector" Background="Transparent" BorderBrush="Transparent"  Foreground="Black"  HorizontalAlignment="Left" Margin="544,0,0,10" VerticalAlignment="Bottom" Width="120" SelectionChanged="languageSelector_SelectionChanged" Opacity="0.5"/>
 
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@ using System.Speech.Recognition;
 using System.Windows;
 using System.Diagnostics;
 using System.Globalization;
+using System.Windows.Controls;
 
 namespace PT2023
 {
@@ -19,10 +20,14 @@ namespace PT2023
         /// <summary>
         /// list of predefined commands
         /// </summary>
-        public  static List<Word> words = new List<Word>();
+        public static List<Word> words = new List<Word>();
 
 
-        private string currentLanguage = "en-US";
+        //private string currentLanguage = "en-US";
+
+        private string selectedLanguage = "en-US";
+
+        private ComboBox languageSelector;
 
         public delegate void SpeechRecognized(object sender, string text);
         public event SpeechRecognized speechRecognizedEvent;
@@ -32,14 +37,14 @@ namespace PT2023
 
 
         #region Constructor
-        public SpeechToText()
+        public SpeechToText(ComboBox languageComboBox)
         {
             try
             {
 
-              //  currentLanguage = CultureInfo.InstalledUICulture.Name.ToString();
+                //  currentLanguage = CultureInfo.InstalledUICulture.Name.ToString();
                 // create the engine
-                speechRecognitionEngine = createSpeechEngine(currentLanguage);
+                speechRecognitionEngine = createSpeechEngine();
 
                 // hook to events
                 speechRecognitionEngine.AudioLevelUpdated += new EventHandler<AudioLevelUpdatedEventArgs>(engine_AudioLevelUpdated);
@@ -58,6 +63,9 @@ namespace PT2023
             {
                 MessageBox.Show(ex.Message, "Voice recognition failed");
             }
+            languageSelector = languageComboBox;
+            // Populate the language dropdown menu
+            PopulateLanguageDropdown();
         }
 
 
@@ -73,11 +81,11 @@ namespace PT2023
         /// </summary>
         /// <param name="preferredCulture">The preferred culture.</param>
         /// <returns></returns>
-        private SpeechRecognitionEngine createSpeechEngine(string preferredCulture)
+        private SpeechRecognitionEngine createSpeechEngine()
         {
             foreach (RecognizerInfo config in SpeechRecognitionEngine.InstalledRecognizers())
             {
-                if (config.Culture.ToString() == preferredCulture)
+                if (config.Culture.ToString() == selectedLanguage)
                 {
                     speechRecognitionEngine = new SpeechRecognitionEngine(config);
                     break;
@@ -87,14 +95,15 @@ namespace PT2023
             // if the desired culture is not found, then load default
             if (speechRecognitionEngine == null)
             {
-                MessageBox.Show("The desired culture is not installed on this machine, the speech-engine will continue using "
-                    + SpeechRecognitionEngine.InstalledRecognizers()[0].Culture.ToString() + " as the default culture.",
-                    "Culture " + preferredCulture + " not found!");
+                MessageBox.Show("The desired language is not installed on this machine, the speech-engine will continue using " +
+                    SpeechRecognitionEngine.InstalledRecognizers()[0].Culture.ToString() + " as the default language.",
+                    "Language " + selectedLanguage + " not found!");
                 speechRecognitionEngine = new SpeechRecognitionEngine(SpeechRecognitionEngine.InstalledRecognizers()[0]);
             }
 
             return speechRecognitionEngine;
         }
+
 
 
         /// <summary>
@@ -130,6 +139,28 @@ namespace PT2023
             }
         }
 
+        public void UpdateSelectedLanguage(string languageTag)
+        {
+            selectedLanguage = languageTag;
+
+            // Recreate the speech engine with the new language
+            speechRecognitionEngine = createSpeechEngine();
+
+            // Load the updated grammar
+            loadGrammar();
+        }
+
+        private void PopulateLanguageDropdown()
+        {
+            // Get the available speech recognition languages
+            var availableLanguages = SpeechRecognitionEngine.InstalledRecognizers()
+                .Select(config => new CultureInfo(config.Culture.Name));
+
+            // Populate the language dropdown menu
+            languageSelector.ItemsSource = availableLanguages;
+            languageSelector.DisplayMemberPath = "DisplayName";
+            languageSelector.SelectedValuePath = "Name";
+        }
 
         #endregion
 
@@ -144,17 +175,17 @@ namespace PT2023
         {
             try
             {
-                if(speechRecognitionEngine != null)
+                if (speechRecognitionEngine != null)
                 {
                     speechRecognizedEvent(this, e.Result.Text);
                 }
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
         }
 
         /// <summary>
@@ -166,11 +197,11 @@ namespace PT2023
         {
             try
             {
-                if(volumeReceivedEvent != null)
+                if (volumeReceivedEvent != null)
                 {
                     volumeReceivedEvent(this, e.AudioLevel);
                 }
-                
+
             }//prgLevel.Value = e.AudioLevel;
             catch (Exception ex)
             {
