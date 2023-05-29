@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VaderSharp2;
 
 namespace PT2023
 {
@@ -365,7 +366,46 @@ namespace PT2023
             }
         }
 
+        private void analyseButton_MouseEnter(object sender, MouseEventArgs e)
+        {
 
+        }
 
+        private void analyseButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void analyseButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the text from the scriptText TextBox
+            string text = scriptText.Text;
+
+            // Create an instance of the SentimentIntensityAnalyzer
+            var analyzer = new SentimentIntensityAnalyzer();
+
+            // Perform sentiment analysis on the text
+            var sentimentScores = analyzer.PolarityScores(text);
+
+            // Interpret the sentiment scores
+            var compoundScore = sentimentScores.Compound;
+            string sentimentLabel;
+
+            if (compoundScore >= 0.05)
+            {
+                sentimentLabel = "Positive";
+            }
+            else if (compoundScore <= -0.05)
+            {
+                sentimentLabel = "Negative";
+            }
+            else
+            {
+                sentimentLabel = "Neutral";
+            }
+
+            // Update the analyseTextBlock with the sentiment label
+            analyseTextBlock.Text = "Sentiment: " + sentimentLabel;
+        }
     }
 }

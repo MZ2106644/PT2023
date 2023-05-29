@@ -9,6 +9,19 @@
     <Grid Height="600" Width="800">
         <Image Source="Images/frame.png" Stretch="Fill" Margin="0,0,0,0" />
         <ComboBox Name="sessionDisplayed" SelectionChanged="sessionDisplayed_SelectionChanged" HorizontalAlignment="Left" Margin="235,26,0,0" VerticalAlignment="Top" Width="216"/>
+        <TextBlock Text="Select your rating:" Foreground="White" Margin="578, 25, 0, 0"/>
+        <StackPanel Orientation="Horizontal" Margin="578,50,0,0">
+            <RadioButton x:Name="star0" Foreground="White" Content="0" GroupName="ratingGroup" />
+            <RadioButton x:Name="star1" Foreground="White" Content="1" GroupName="ratingGroup" IsChecked="True"  />
+            <RadioButton x:Name="star2" Foreground="White" Content="2" GroupName="ratingGroup" />
+            <RadioButton x:Name="star3" Foreground="White" Content="3"  GroupName="ratingGroup" />
+            <RadioButton x:Name="star4" Foreground="White" Content="4" GroupName="ratingGroup" />
+            <RadioButton x:Name="star5" Foreground="White" Content="5" GroupName="ratingGroup" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="578, 70, 0, 0">
+            <TextBlock Text="Current Rating:" Foreground="White" Margin="5" />
+            <TextBlock x:Name="currentRating" Foreground="White" Text="{Binding Path=SelectedRating, StringFormat='{}{0}/5'}" Margin="5" />
+        </StackPanel>
         <MediaElement Name="myVideo" LoadedBehavior="Manual" UnloadedBehavior="Manual" HorizontalAlignment="Left" Height="401" Margin="48,96,0,0" VerticalAlignment="Top" Width="484"/>
         <Button Name="Play" MouseEnter="Play_MouseEnter" MouseLeave="Play_MouseLeave" BorderThickness="0" Background="Transparent" FontSize="15" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Click="Play_Click" Height="50" Width="57" >
             <Button.Style>

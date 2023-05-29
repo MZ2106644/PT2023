@@ -95,6 +95,7 @@ namespace PT2023
         #region logging
         public static string loggingString="";
         public static LogObjects.PracticeSession practiceSession;
+        private int selectedRating;
         #endregion
 
         #region text2Speech
@@ -860,7 +861,7 @@ namespace PT2023
 
         private void startLoggingStuff()
         {
-            practiceSession = new PracticeSession();
+            practiceSession = new PracticeSession(selectedRating);
             practiceSession.scriptVisible = withScript;
 
             // Start VIDEO stuff
@@ -897,6 +898,7 @@ namespace PT2023
         {
             // saveToJSON();
             practiceSession.end = DateTime.Now;
+            practiceSession.rating = selectedRating;
             string path = System.IO.Path.Combine(UserManagement.usersPathLogs + "\\PracticeSession.json");
             if (!File.Exists(path))
             {

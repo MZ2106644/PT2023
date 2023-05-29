@@ -35,6 +35,32 @@ namespace PT2023
         public delegate void ExitEvent(object sender, string x);
         public event ExitEvent exitEvent;
 
+        public int selectedRating;
+
+        public int SelectedRating
+        {
+            get { return selectedRating; }
+            set
+            {
+                selectedRating = value;
+                currentRating.Text = value.ToString();
+
+                // Update the rating for the selected session
+                if (sessionDisplayed.SelectedIndex != -1)
+                {
+                    sessions.sessions[sessionDisplayed.SelectedIndex].rating = value;
+                    SaveSessions(); // Save the updated sessions back to the JSON file
+                }
+            }
+        }
+
+        private void SaveSessions()
+        {
+            string path = System.IO.Path.Combine(UserManagement.usersPathLogs, "PracticeSession.json");
+            string json = JsonConvert.SerializeObject(sessions);
+            File.WriteAllText(path, json);
+        }
+
         public ReviewPractice()
         {
             InitializeComponent();
@@ -42,6 +68,13 @@ namespace PT2023
 
             VideoCreation vc = new VideoCreation();
 
+            // Attach Checked event handlers to the RadioButtons
+            star0.Checked += RadioButton_Checked;
+            star1.Checked += RadioButton_Checked;
+            star2.Checked += RadioButton_Checked;
+            star3.Checked += RadioButton_Checked;
+            star4.Checked += RadioButton_Checked;
+            star5.Checked += RadioButton_Checked;
         }
 
 
@@ -88,7 +121,6 @@ namespace PT2023
             {
                 warningLabel.Visibility = Visibility.Visible;
                 canReview = false;
-
             }
             else
             {
@@ -97,7 +129,6 @@ namespace PT2023
                 foreach (PracticeSession session in sessions.sessions)
                 {
                     sessionDisplayed.Items.Add(session.start);
-                  
                 }
 
                 sessionDisplayed.SelectedIndex = sessions.sessions.Count() - 1;
@@ -105,7 +136,12 @@ namespace PT2023
                 selectVideo();
                 loadFeedback();
                 getSentences();
-                
+
+                // Load the selected rating from the session
+                if (currentSession != -1)
+                {
+                    SelectedRating = sessions.sessions[currentSession].rating;
+                }
             }
         }
         
@@ -121,10 +157,23 @@ namespace PT2023
 
         private void sessionDisplayed_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Clear the selection of the rating buttons
+            star0.IsChecked = false;
+            star1.IsChecked = false;
+            star2.IsChecked = false;
+            star3.IsChecked = false;
+            star4.IsChecked = false;
+            star5.IsChecked = false;
+
             currentSession = sessionDisplayed.SelectedIndex;
-           
             selectVideo();
             getSentences();
+
+            // Update the selected rating based on the selected session
+            if (currentSession != -1)
+            {
+                SelectedRating = sessions.sessions[currentSession].rating;
+            }
         }
 
         
@@ -326,6 +375,17 @@ namespace PT2023
         {
             btnAddFeedbackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_addO.png"));
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Update the SelectedRating property when a RadioButton is checked
+            var radioButton = (RadioButton)sender;
+            SelectedRating = Convert.ToInt32(radioButton.Content);
+
+            // Set the selected rating to the SelectedRating property
+            SelectedRating = selectedRating;
+        }
+
 
         #endregion
 
