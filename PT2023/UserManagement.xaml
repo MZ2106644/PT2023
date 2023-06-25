@@ -9,10 +9,10 @@
     <Grid Width="600" Height="450">
         <Image Source="Images/frame.png" Stretch="Fill" />
         <Grid x:Name="userGrid" Visibility="Visible">
-            <Label Content="Select User" HorizontalAlignment="Left" Margin="47,97,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Select User:" HorizontalAlignment="Left" Margin="47,97,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBox Name="userNameTextBox" HorizontalAlignment="Left" Height="26" Margin="156,97,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="162"/>
-            <ListBox SelectionChanged="usersListBox_SelectionChanged" Name="usersListBox" HorizontalAlignment="Left" Height="185" Margin="47,186,0,0" VerticalAlignment="Top" Width="513" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-            <Button Name="selectButton" MouseEnter="selectButton_MouseEnter" MouseLeave="selectButton_MouseLeave" Click="selectButton_Click" Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="332,94,0,0" VerticalAlignment="Top">
+            <ListBox SelectionChanged="usersListBox_SelectionChanged" MouseDoubleClick="usersListBox_MouseDoubleClick" Name="usersListBox" HorizontalAlignment="Left" Height="185" Margin="47,186,0,0" VerticalAlignment="Top" Width="513" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <Button Name="selectButton" MouseEnter="selectButton_MouseEnter" MouseLeave="selectButton_MouseLeave" Click="selectButton_Click" Background="Transparent" Height="35" Width="35" HorizontalAlignment="Left" Margin="332,94,0,0" VerticalAlignment="Top">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="Transparent"/>
@@ -32,7 +32,7 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
-                <Image Name="selectButtonImg" Source="Images/btn_Go.png"/>
+                <Image Name="selectButtonImg" Source="Images/Go.png"/>
             </Button>
 
             <Label Content="Select User" HorizontalAlignment="Left" Margin="156,40,0,0" Foreground="White" VerticalAlignment="Top" Height="24" Width="203"/>
@@ -40,8 +40,8 @@
         <Grid x:Name="presentationGrid" Visibility="Collapsed">
             <Label Content="Select Presentation:" HorizontalAlignment="Left" Margin="45,97,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBox Name="presentationNameTextBox" HorizontalAlignment="Left" Height="26" Margin="156,97,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="162"/>
-            <ListBox SelectionChanged="presentationsListBox_SelectionChanged" Name="presentationsListBox" HorizontalAlignment="Left" Height="185" Margin="47,186,0,0" VerticalAlignment="Top" Width="513" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-            <Button Name="presentationButton" Click="presentationButton_Click" MouseEnter="presentationButton_MouseEnter" MouseLeave="presentationButton_MouseLeave" Background="Transparent"  HorizontalAlignment="Left" Margin="332,94,0,0" VerticalAlignment="Top" Height="30">
+            <ListBox SelectionChanged="presentationsListBox_SelectionChanged" MouseDoubleClick="presentationsListBox_MouseDoubleClick" Name="presentationsListBox" HorizontalAlignment="Left" Height="185" Margin="47,186,0,0" VerticalAlignment="Top" Width="513" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <Button Name="presentationButton" Click="presentationButton_Click" MouseEnter="presentationButton_MouseEnter" MouseLeave="presentationButton_MouseLeave" Background="Transparent"  HorizontalAlignment="Left" Margin="332,94,0,0" VerticalAlignment="Top" Height="35" Width="35">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Background" Value="Transparent"/>
@@ -61,7 +61,7 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
-                <Image Name="presentationButtonImg" Source="Images/btn_Go.png"/>
+                <Image Name="presentationButtonImg" Source="Images/Go.png"/>
             </Button>
             <Label Content="Select Presentation" HorizontalAlignment="Left" Margin="156,40,0,0" Foreground="White" VerticalAlignment="Top" Height="24" Width="203"/>
         </Grid>

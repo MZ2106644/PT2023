@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:PT2023"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="ArchivoFont">/PT2023;component/Fonts/Archivo.ttf#Archivo</FontFamily>
+        <FontFamily x:Key="RobotoFont">/PT2023;component/Fonts/Roboto.ttf#Roboto</FontFamily>
+        <FontFamily x:Key="AbrilFatfaceFont">/PT2023;component/Fonts/Abril Fatface.ttf#Abril Fatface</FontFamily>
+        <FontFamily x:Key="LatoFont">/PT2023;component/Fonts/Lato.ttf#Lato</FontFamily>
     </Application.Resources>
 </Application>

@@ -32,7 +32,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="ReturnImg" Source="Images/btn_return.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Return to main menu"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="ReturnImg" Source="Images/Return.png" />
         </Button>
 
         <Button Name="Back" BorderThickness="0" Background="Transparent" MouseEnter="Back_MouseEnter" MouseLeave="Back_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="255,0,0,30" VerticalAlignment="Bottom" Click="Back_Click" Height="50" Width="57" >
@@ -55,7 +60,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="BackImg" Source="Images/btn_Back.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Previous tip"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="BackImg" Source="Images/Back.png" />
         </Button>
 
         <Button Name="Next" BorderThickness="0" Background="Transparent" MouseEnter="Next_MouseEnter" MouseLeave="Next_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="555,0,0,30" VerticalAlignment="Bottom" Click="Next_Click" Height="50" Width="57" >
@@ -78,7 +88,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="NextImg" Source="Images/btn_next.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Next tip"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="NextImg" Source="Images/Next.png" />
         </Button>
 
     </Grid>

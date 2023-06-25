@@ -50,13 +50,17 @@ namespace PT2023
 
         public VolumeAnalysis volumeAnalysis;
 
+        private bool isUserManagementOpened = false;
+        private bool isSlideSelectionOpened = false;
+
+
         public WelcomePage()
         {
             InitializeComponent();
 
             volumeAnalysis = new VolumeAnalysis();
 
-            // initSpeech();
+            initSpeech();
 
             connectedDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo fi in connectedDevices)
@@ -75,7 +79,6 @@ namespace PT2023
             addUserMagangement();
 
             learningDesign = new LearningDesign();
-
 
 
         }
@@ -257,19 +260,24 @@ namespace PT2023
 
         private void SlideSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            slideSelection=new SlideSelection();
-            myGrid.Children.Add(slideSelection);
-            slideSelection.Margin = new Thickness(0, 0, 0, 0);
-            slideSelection.VerticalAlignment = VerticalAlignment.Center;
-            slideSelection.HorizontalAlignment = HorizontalAlignment.Center;
-            slideSelection.Visibility = Visibility.Visible;
-            slideSelection.exitEvent += SlideSelection_exitEvent;
-            Grid_for_Mode_Selection.Visibility = Visibility.Collapsed;
-            Tutor.Visibility = Visibility.Collapsed;
-
-            if (learningDesign.Tasks[0].taskType== LearningDesign.TaskType.SLIDESELECTION)
+            if (!isSlideSelectionOpened)
             {
-                learningDesign.Tasks.Remove(learningDesign.Tasks[0]);
+                slideSelection = new SlideSelection();
+                myGrid.Children.Add(slideSelection);
+                slideSelection.Margin = new Thickness(0, 0, 0, 0);
+                slideSelection.VerticalAlignment = VerticalAlignment.Center;
+                slideSelection.HorizontalAlignment = HorizontalAlignment.Center;
+                slideSelection.Visibility = Visibility.Visible;
+                slideSelection.exitEvent += SlideSelection_exitEvent;
+                Grid_for_Mode_Selection.Visibility = Visibility.Collapsed;
+                Tutor.Visibility = Visibility.Collapsed;
+
+                if (learningDesign.Tasks[0].taskType == LearningDesign.TaskType.SLIDESELECTION)
+                {
+                    learningDesign.Tasks.Remove(learningDesign.Tasks[0]);
+                }
+
+                isSlideSelectionOpened = true;
             }
         }
 
@@ -307,7 +315,11 @@ namespace PT2023
 
         private void UserManagementButton_Click(object sender, RoutedEventArgs e)
         {
-            addUserMagangement();
+            if (!isUserManagementOpened)
+            {
+                addUserMagangement();
+                isUserManagementOpened = true;
+            }
         }
 
         private void Button_add_Script_Click(object sender, RoutedEventArgs e)
@@ -416,6 +428,7 @@ namespace PT2023
             Dispatcher.BeginInvoke(new System.Threading.ThreadStart(delegate {
                 userManagement.Visibility = Visibility.Collapsed;
                 myGrid.Children.Remove(userManagement);
+                isUserManagementOpened = false; // Set the Usermanagement boolean to false
                 Grid_for_Mode_Selection.Visibility = Visibility.Visible;
                 locateTutor();
                 initSpeech();
@@ -488,6 +501,7 @@ namespace PT2023
             Dispatcher.BeginInvoke(new System.Threading.ThreadStart(delegate {
                 slideSelection.Visibility = Visibility.Collapsed;
                 myGrid.Children.Remove(slideSelection);
+                isSlideSelectionOpened = false; //Sets the slide selection boolean to false
                 Grid_for_Mode_Selection.Visibility = Visibility.Visible;
                 locateTutor();
             }));
@@ -514,42 +528,42 @@ namespace PT2023
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
-            volumeButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_volume1O.png"));
+            volumeButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Volume1.png"));
         }
 
         private void Button_MouseLeave(object sender, MouseEventArgs e)
         {
-            volumeButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_volume1.png"));
+            volumeButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Volume.png"));
         }
 
         private void UserManagementButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            UserManagementButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_userO.png"));
+            UserManagementButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Profile1.png"));
         }
 
         private void UserManagementButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            UserManagementButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_user.png"));
+            UserManagementButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Profile.png"));
         }
 
         private void Button_MouseEnter_1(object sender, MouseEventArgs e)
         {
-            buttonExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_exit1O.png"));
+            buttonExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Exit1.png"));
         }
 
         private void Button_MouseLeave_1(object sender, MouseEventArgs e)
         {
-            buttonExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_exit1.png"));
+            buttonExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Exit.png"));
         }
 
         private void SlideSelectionButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            SlideSelectionButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_slidesO.png"));
+            SlideSelectionButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Presentation add1.png"));
         }
 
         private void SlideSelectionButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            SlideSelectionButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_slides.png"));
+            SlideSelectionButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Presentation add.png"));
         }
 
         #endregion
@@ -569,6 +583,18 @@ namespace PT2023
                 // Update the selected language in the speech-to-text instance
                 speechToText.UpdateSelectedLanguage(languageTag);
             }
+        }
+
+        private void CheckBox_EnableTutorial_Checked(object sender, RoutedEventArgs e)
+        {
+            // Enable the tutor function here
+            Tutor.Visibility = Visibility.Visible;
+        }
+
+        private void CheckBox_EnableTutorial_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // Disable the tutor function here
+            Tutor.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -30,7 +30,7 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="findButtonImg" Source="Images/btn_find.png"/>
+            <Image Name="findButtonImg" Source="Images/ThreeDots.png"/>
         </Button>
         <Button Name="Go_back" MouseEnter="Go_back_MouseEnter" MouseLeave="Go_back_MouseLeave" Click="Go_back_Click" HorizontalAlignment="Left" Margin="40,0,0,22" VerticalAlignment="Bottom" Height="40">
             <Button.Style>
@@ -52,7 +52,7 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="go_backImg" Source="Images/btn_return.png"/>
+            <Image Name="go_backImg" Source="Images/Return.png"/>
         </Button>
 
     </Grid>

@@ -160,7 +160,11 @@ namespace PT2023
             languageSelector.ItemsSource = availableLanguages;
             languageSelector.DisplayMemberPath = "DisplayName";
             languageSelector.SelectedValuePath = "Name";
+
+            // Set the currently selected language
+            languageSelector.SelectedItem = availableLanguages.FirstOrDefault(lang => lang.Name == selectedLanguage);
         }
+
 
         #endregion
 

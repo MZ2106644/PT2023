@@ -70,21 +70,21 @@ namespace PT2023
         #region buttonsAnimations
         private void Button_findSlides_MouseEnter(object sender, MouseEventArgs e)
         {
-            findButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_findO.png"));
+            findButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\ThreeDots1.png"));
         }
 
         private void Button_findSlides_MouseLeave(object sender, MouseEventArgs e)
         {
-            findButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_find.png"));
+            findButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\ThreeDots.png"));
         }
         private void Go_back_MouseEnter(object sender, MouseEventArgs e)
         {
-            go_backImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_backO.png"));
+            go_backImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return1.png"));
         }
 
         private void Go_back_MouseLeave(object sender, MouseEventArgs e)
         {
-            go_backImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_return.png"));
+            go_backImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return.png"));
         }
 
 

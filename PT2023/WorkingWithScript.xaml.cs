@@ -275,44 +275,52 @@ namespace PT2023
 
         private void Button_Close_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button_CloseImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_save_closeO.png"));
+            Button_CloseImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Confirm1.png"));
         }
 
         private void Button_Close_MouseLeave(object sender, MouseEventArgs e)
         {
-            Button_CloseImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_save_close.png"));
+            Button_CloseImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Confirm.png"));
         }
 
-        private void chunkButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-            chunkButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_chunkO.png"));
-        }
+        //private void chunkButton_MouseEnter(object sender, MouseEventArgs e)
+        //{
+          //  chunkButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_chunkO.png"));
+        //}
 
-        private void chunkButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            chunkButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_chunk.png"));
-        }
-
+        //private void chunkButton_MouseLeave(object sender, MouseEventArgs e)
+        //{
+          //  chunkButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_chunk.png"));
+        //}
         private void buttonPrevious_MouseEnter(object sender, MouseEventArgs e)
         {
-            prevButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Back_O.png"));
+            prevButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back1.png"));
         }
 
         private void buttonPrevious_MouseLeave(object sender, MouseEventArgs e)
         {
-            prevButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Back.png"));
+            prevButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back.png"));
         }
 
         private void buttonNext_MouseEnter(object sender, MouseEventArgs e)
         {
-            nextButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_NextO.png"));
+            nextButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next1.png"));
         }
 
         private void buttonNext_MouseLeave(object sender, MouseEventArgs e)
         {
-            nextButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Next.png"));
+            nextButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next.png"));
         }
 
+        private void analyseButton_MouseEnter(object sender, MouseEventArgs e)
+        {
+            analyseButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Analyse1.png"));
+        }
+
+        private void analyseButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            analyseButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Analyse.png"));
+        }
 
         #endregion
 
@@ -364,16 +372,6 @@ namespace PT2023
                 refreshText();
                 setSlideAndText();
             }
-        }
-
-        private void analyseButton_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void analyseButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void analyseButton_Click(object sender, RoutedEventArgs e)

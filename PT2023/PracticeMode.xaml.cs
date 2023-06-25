@@ -933,63 +933,63 @@ namespace PT2023
         #region button animations
         private void Button_Pause_Play_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button_Pause_PlayImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_pause_playO.png"));
+            Button_Pause_PlayImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Stop1.png"));
         }
 
         private void Button_Pause_Play_MouseLeave(object sender, MouseEventArgs e)
         {
-            Button_Pause_PlayImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_pause_play.png"));
+            Button_Pause_PlayImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Stop.png"));
         }
 
         private void buttonBack_MouseEnter(object sender, MouseEventArgs e)
         {
-           buttonBackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Back_O.png"));
+           buttonBackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back1.png"));
         }
 
         private void buttonBack_MouseLeave(object sender, MouseEventArgs e)
         {
-            buttonBackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Back.png"));
+            buttonBackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back.png"));
         }
 
 
         private void buttonNext_MouseEnter(object sender, MouseEventArgs e)
         {
-            buttonNextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_NextO.png"));
+            buttonNextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next1.png"));
         }
 
         private void buttonNext_MouseLeave(object sender, MouseEventArgs e)
         {
-            buttonNextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Next.png"));
+            buttonNextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next.png"));
         }
 
         private void buttonSpeak_MouseEnter(object sender, MouseEventArgs e)
         {
-            buttonSpeakImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_speakO.png"));
+            buttonSpeakImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\speak1.png"));
         }
 
         private void buttonSpeak_MouseLeave(object sender, MouseEventArgs e)
         {
-            buttonSpeakImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_speak.png"));
+            buttonSpeakImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Speak.png"));
         }
 
         private void Button_yes_Exit_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button_yes_ExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_yesO.png"));
+            Button_yes_ExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Confirm1.png"));
         }
 
         private void Button_yes_Exit_MouseLeave(object sender, MouseEventArgs e)
         {
-            Button_yes_ExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_yes.png"));
+            Button_yes_ExitImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Confirm.png"));
         }
 
         private void Button_keep_practicing_MouseEnter(object sender, MouseEventArgs e)
         {
-            Button_keep_practicingImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_noO.png"));
+            Button_keep_practicingImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\No1.png"));
         }
 
         private void Button_keep_practicing_MouseLeave(object sender, MouseEventArgs e)
         {
-            Button_keep_practicingImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_no.png"));
+            Button_keep_practicingImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\No.png"));
         }
 
         #endregion

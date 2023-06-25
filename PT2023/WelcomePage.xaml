@@ -7,33 +7,59 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" >
     <Grid Name="myGrid">
-        <Image Source="Images\BackgroundW.png" Name="backgroundImg" Stretch="Fill"  />
-        <Image Source="Images\Title.png" VerticalAlignment="Top" HorizontalAlignment="Center" Height="90"/>
+        <Rectangle Fill="#8ecae6"  />
+        <Image Source="Images/logo-no-background.png"  VerticalAlignment="Top" HorizontalAlignment="Center" Height="90" Width="360"/>
         <Grid Name="Grid_for_Mode_Selection" Visibility="Visible">
-            <Grid Name="PracticeGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="42,230,620,225" Width="200" >
+            <Grid Name="PracticeGrid" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,230,220,225" Width="200" >
                 <Image Source="Images\container4.png"  Stretch="Fill"  />
-                <Button  HorizontalAlignment="Left" BorderThickness="0" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent" Click="Button_Click_1" Height="70" Width="70">
-                    <Image Source="Images/btn_speaking.png" />
+                <Button  HorizontalAlignment="Left" BorderThickness="0" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent" Click="Button_Click_1" Height="77" Width="180">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Practice your presentation with your camera here"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="Images/Presentation exercise.png" />
                 </Button>
-                <Label Content="Practice Presentation" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
-                <CheckBox Content="Script" HorizontalAlignment="Left" Margin="95,55,0,0" VerticalAlignment="Top" Name="checkBoxScript" />
-                <CheckBox Content="Skeleton" HorizontalAlignment="Left" Margin="95,35,0,0" VerticalAlignment="Top" Name="checkBoxSkeleton"/>
+                <Label Content="Practice Presentation" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
+                <CheckBox Content="Script" HorizontalAlignment="Left" Margin="95,55,0,0" VerticalAlignment="Top" Name="checkBoxScript" >
+                    <CheckBox.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Check if you want to use your presentation script in the practice presentation mode"/>
+                        </ToolTip>
+                    </CheckBox.ToolTip>
+                </CheckBox>
+                <CheckBox Content="Skeleton" HorizontalAlignment="Left" Margin="95,35,0,0" VerticalAlignment="Top" Name="checkBoxSkeleton">
+                    <CheckBox.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Check if you want to use body language recognition within the practice presentation mode"/>
+                        </ToolTip>
+                    </CheckBox.ToolTip>
+                </CheckBox>
+            </Grid>
+            <Grid Name="AddScriptGrid" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,80,220,225" Width="200" >
+                <Image Source="Images\container4.png"  Stretch="Fill"  />
+                <Button Name="Button_add_Script" BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="13" Background="Transparent"  Height="77" Width="180" Click="Button_add_Script_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Add your presentation script here"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="Images/Script logo.png" />
+                </Button>
+                <Label Content="Work with Script" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
 
             </Grid>
-            <Grid Name="AddScriptGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="42,80,620,225" Width="200" >
+            <Grid Name="MemoriseScriptGrid" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="274,80,0,0" Width="200" >
                 <Image Source="Images\container4.png"  Stretch="Fill"  />
-                <Button Name="Button_add_Script" BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="13" Background="Transparent"  Height="70" Width="70" Click="Button_add_Script_Click">
-                    <Image Source="Images/btn_script.png" />
+                <Button Name="Button_add_Memory"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="77" Width="180" Click="Button_add_Memory_Click" >
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Memorise your presentation with a speech exercise using your microphone here"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="Images/Speech exercise.png" />
                 </Button>
-                <Label Content="Work with Script" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
-
-            </Grid>
-            <Grid Name="MemoriseScriptGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="274,80,0,0" Width="200" >
-                <Image Source="Images\container4.png"  Stretch="Fill"  />
-                <Button Name="Button_add_Memory"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="70" Width="70" Click="Button_add_Memory_Click" >
-                    <Image Source="Images/btn_memory.png" />
-                </Button>
-                <Label Content="Memorise your Script" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
+                <Label Content="Memorise your Script" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="10,0,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
 
             </Grid>
 
@@ -46,28 +72,44 @@
                 <CheckBox Content="Skeleton" HorizontalAlignment="Left" Margin="95,55,0,0" VerticalAlignment="Top" Name="checkBoxSkeletonPractice"/>
             </Grid>-->
 
-            <Grid Name="ReviewPracticeGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="274,232,0,0" Width="200" >
+            <Grid Name="ReviewPracticeGrid" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="274,230,0,0" Width="200" >
                 <Image Source="Images\container4.png"  Stretch="Fill"  />
-                <Button Name="Button_Review_Practice"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="70" Width="70" Click="Button_Review_Practice_Click">
-                    <Image Source="Images/btn_review.png" />
+                <Button Name="Button_Review_Practice"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="77" Width="180" Click="Button_Review_Practice_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Review your past practiced presentation sessions here"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="Images/Review practice.png" />
                 </Button>
-                <Label Content="Review your practice" FontSize="13" HorizontalAlignment="Left" Margin="10,00,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
+                <Label Content="Review your practice" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="10,00,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
                
             </Grid>
 
-            <Grid Name="PresentationTipsGrid" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="494,232,0,0" Width="200" >
+            <Grid Name="PresentationTipsGrid" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,380,220, 225" Width="200" >
                 <Image Source="Images\container4.png"  Stretch="Fill"  />
-                <Button Name="Button_Presentation_Tips"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="70" Width="70" Click="Button_Presentation_Tips_Click">
-                    <Image Source="Images/btn_speaking.png" />
+                <Button Name="Button_Presentation_Tips"  BorderThickness="0" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" FontSize="20" Background="Transparent"  Height="77" Width="180" Click="Button_Presentation_Tips_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="Get your valuable presentation tips here"/>
+                        </ToolTip>
+                    </Button.ToolTip>
+                    <Image Source="Images/Tips presentation.png" />
                 </Button>
-                <Label Content="Get presentation tips" FontSize="13" HorizontalAlignment="Left" Margin="10,00,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
+                <Label Content="Get presentation tips" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="10,00,0,5" VerticalAlignment="Bottom"  Foreground="Black"/>
 
             </Grid>
 
         </Grid>
-        <Rectangle VerticalAlignment="Bottom" Height="70" Fill="White" Opacity="0.3"></Rectangle>
-        <Label Content="Select Camera" HorizontalAlignment="Left" Margin="22,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="White"/>
-        <ComboBox Name="cameraSelector" Background="Transparent" BorderBrush="Transparent"  Foreground="Black"  HorizontalAlignment="Left" Margin="144,0,0,10" VerticalAlignment="Bottom" Width="120" SelectionChanged="cameraSelector_SelectionChanged" Opacity="0.5"/>
+        <Rectangle VerticalAlignment="Bottom" Height="70" Fill="#219ebc" ></Rectangle>
+        <Label Content="Select Camera:" FontFamily="{StaticResource AbrilFatfaceFont}" HorizontalAlignment="Left" Margin="22,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold" />
+        <ComboBox Name="cameraSelector" Background="Transparent" BorderBrush="Transparent"  Foreground="Black"  HorizontalAlignment="Left" Margin="144,0,0,10" VerticalAlignment="Bottom" Width="120" SelectionChanged="cameraSelector_SelectionChanged" Opacity="0.5">
+            <ComboBox.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Select your desired camera"/>
+                </ToolTip>
+            </ComboBox.ToolTip>
+        </ComboBox>
         <Button  HorizontalAlignment="Left" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Margin="300,0,0,10" VerticalAlignment="Bottom" Click="Button_Click" BorderThickness="0" Background="Transparent" Height="30" Width="30">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -88,7 +130,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="volumeButtonImg" Source="Images/btn_volume1.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Adjust different volume controls"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="volumeButtonImg" Source="Images/Volume.png" />
         </Button>
         <Button Name="UserManagementButton" MouseEnter="UserManagementButton_MouseEnter" MouseLeave="UserManagementButton_MouseLeave" Background="Transparent" HorizontalAlignment="Left" Margin="350,0,0,10" VerticalAlignment="Bottom" Click="UserManagementButton_Click" BorderThickness="0"  Height="30" Width="30">
             <Button.Style>
@@ -110,7 +157,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="UserManagementButtonImg" Source="Images/btn_user.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Profile page"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="UserManagementButtonImg" Source="Images/Profile.png" />
         </Button>
         <Button Name="SlideSelectionButton" MouseEnter="SlideSelectionButton_MouseEnter" MouseLeave="SlideSelectionButton_MouseLeave" Background="Transparent" HorizontalAlignment="Left" Margin="390,0,0,10" VerticalAlignment="Bottom" Click="SlideSelectionButton_Click" BorderThickness="0"  Height="30" Width="30">
             <Button.Style>
@@ -132,7 +184,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="SlideSelectionButtonImg" Source="Images/btn_slides.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Add a folder with JPG slides"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="SlideSelectionButtonImg" Source="Images/Presentation add.png" />
         </Button>
         <Button  HorizontalAlignment="Right" Margin="0,0,20,10" MouseEnter="Button_MouseEnter_1" MouseLeave="Button_MouseLeave_1"  VerticalAlignment="Bottom" Height="45" BorderThickness="0" Click="Button_Click_2" Background="Transparent">
             <Button.Style>
@@ -154,13 +211,33 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="buttonExitImg" Source="Images/btn_exit1.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Exit the Presentation Trainer application"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="buttonExitImg" Source="Images/Exit.png" />
         </Button>
         <local:Tutor x:Name="Tutor" HorizontalAlignment="Left" Margin="506,395,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
 
 
-        <Label Content="Select Language" HorizontalAlignment="Left" Margin="422,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="White"/>
-            <ComboBox Name="languageSelector" Background="Transparent" BorderBrush="Transparent"  Foreground="Black"  HorizontalAlignment="Left" Margin="544,0,0,10" VerticalAlignment="Bottom" Width="120" SelectionChanged="languageSelector_SelectionChanged" Opacity="0.5"/>
+        <Label Content="Select Speech Language:" FontFamily="{StaticResource AbrilFatfaceFont}" HorizontalAlignment="Left" Margin="450,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold"/>
+        <ComboBox Name="languageSelector" Background="Transparent" BorderBrush="Transparent"  Foreground="Black"  HorizontalAlignment="Left" Margin="624,0,0,10" VerticalAlignment="Bottom" Width="120" SelectionChanged="languageSelector_SelectionChanged" Opacity="0.5">
+            <ComboBox.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Select your desired installed speech language"/>
+                </ToolTip>
+            </ComboBox.ToolTip>
+        </ComboBox>
+
+        <CheckBox Name="tutorCheckbox" HorizontalAlignment="Left" Margin="780,0,0,15" IsChecked="True" VerticalAlignment="Bottom" Checked="CheckBox_EnableTutorial_Checked" Unchecked="CheckBox_EnableTutorial_Unchecked" >
+        <CheckBox.ToolTip>
+            <ToolTip>
+                <TextBlock Text="Enable/Disable the tutor tutorial function"/>
+            </ToolTip>
+        </CheckBox.ToolTip>
+        </CheckBox>
+        <Label Content="Enable/Disable Tutorial" FontFamily="{StaticResource AbrilFatfaceFont}" HorizontalAlignment="Left" Margin="800,0,0,10" VerticalAlignment="Bottom" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

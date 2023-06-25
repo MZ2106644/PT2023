@@ -9,7 +9,7 @@
     <Grid Height="600" Width="800">
         <Image Source="Images/frame.png" Stretch="Fill" Margin="0,0,0,0" />
         <StackPanel Margin="40,30,0,0" Orientation="Horizontal" >
-            <Label Name="levelLabel" Content="Current Level" Foreground="White" Margin="5,0,0,0"/>
+            <Label Name="levelLabel" Content="Current Difficulty Level:" Foreground="White" Margin="5,0,0,0"/>
             <RadioButton Name="radioLevel1" GroupName="levelGroupName" Checked="RadioButton_Checked" IsChecked="True" Foreground="White" Margin="5">1</RadioButton>
             <RadioButton Name="radioLevel2" GroupName="levelGroupName" Checked="RadioButton_Checked" Foreground="White" Margin="5">2</RadioButton>
             <RadioButton Name="radioLevel3" GroupName="levelGroupName" Checked="RadioButton_Checked" Foreground="White" Margin="5" >3</RadioButton>
@@ -43,7 +43,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="Button_StartImg" Source="Images/btn_start.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Start the speech exercise"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="Button_StartImg" Source="Images/Play.png" />
         </Button>
         <Button Name="Return" MouseEnter="Return_MouseEnter" MouseLeave="Return_MouseLeave" BorderThickness="0" Background="Transparent" FontSize="15" HorizontalAlignment="Left" Margin="60,0,0,30" VerticalAlignment="Bottom" Click="Return_Click" Height="50" Width="57" >
             <Button.Style>
@@ -65,7 +70,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="ReturnImg" Source="Images/btn_return.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Return to main menu"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="ReturnImg" Source="Images/Return.png" />
         </Button>
         <Image Name="correctImage" Visibility="Collapsed" HorizontalAlignment="Left" Height="107" Margin="326,97,0,0" VerticalAlignment="Top" Width="138" Source="/correct.png"/>
         <Image  Name="incorrectImage" Visibility="Collapsed" HorizontalAlignment="Left" Height="100" Margin="341,112,0,0" VerticalAlignment="Top" Width="100" Source="/wrong.png"/>

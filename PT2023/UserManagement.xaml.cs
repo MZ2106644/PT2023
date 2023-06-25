@@ -130,6 +130,31 @@ namespace PT2023
             presentationsListBox.ItemsSource = presentations;
         }
 
+        private void usersListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SelectUserAndProceed();
+        }
+
+        private void SelectUserAndProceed()
+        {
+            if (usersListBox.SelectedItem != null)
+            {
+                userNameTextBox.Text = usersListBox.SelectedItem.ToString();
+                usersPath = System.IO.Path.Combine(usersPath, userNameTextBox.Text);
+
+                bool exists = System.IO.Directory.Exists(usersPath);
+                if (!exists)
+                {
+                    System.IO.Directory.CreateDirectory(usersPath);
+                }
+
+                presentationGrid.Visibility = Visibility.Visible;
+                userGrid.Visibility = Visibility.Collapsed;
+                getPresentationsDirectories();
+                presentationsListBox.ItemsSource = presentations;
+            }
+        }
+
         private void presentationsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             presentationNameTextBox.Text = (string)presentationsListBox.SelectedValue;
@@ -162,26 +187,60 @@ namespace PT2023
             exitEvent(this, "");
         }
 
+        private void presentationsListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SelectPresentationAndProceed();
+        }
+
+        private void SelectPresentationAndProceed()
+        {
+            if (presentationsListBox.SelectedItem != null)
+            {
+                presentationNameTextBox.Text = presentationsListBox.SelectedItem.ToString();
+                presentationPath = System.IO.Path.Combine(tempPath, presentationNameTextBox.Text);
+                usersPathScripts = System.IO.Path.Combine(presentationPath, "Scripts");
+                usersPathVideos = System.IO.Path.Combine(presentationPath, "Videos");
+                usersPathLogs = System.IO.Path.Combine(presentationPath, "Logs");
+
+                string executingDirectory = Directory.GetCurrentDirectory();
+                string scriptsPath = System.IO.Path.Combine(executingDirectory, "Scripts");
+                MainWindow.scriptPath = System.IO.Path.Combine(scriptsPath, "Script.txt");
+
+                bool exists = System.IO.Directory.Exists(presentationPath);
+                if (!exists)
+                {
+                    System.IO.Directory.CreateDirectory(presentationPath);
+                    System.IO.Directory.CreateDirectory(usersPathScripts);
+                    System.IO.Directory.CreateDirectory(usersPathVideos);
+                    System.IO.Directory.CreateDirectory(usersPathLogs);
+                }
+
+                userGrid.Visibility = Visibility.Visible;
+                presentationGrid.Visibility = Visibility.Collapsed;
+                exitEvent(this, "");
+            }
+        }
+
         #region button animations
         private void selectButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            selectButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_goO.png"));
+            selectButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Go1.png"));
         }
     
 
         private void selectButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            selectButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Go.png"));
+            selectButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Go.png"));
         }
 
         private void presentationButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            presentationButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_goO.png"));
+            presentationButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Go1.png"));
         }
 
         private void presentationButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            presentationButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Go.png"));
+            presentationButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Go.png"));
         }
 
         #endregion

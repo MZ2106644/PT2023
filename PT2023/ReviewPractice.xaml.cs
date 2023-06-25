@@ -314,11 +314,11 @@ namespace PT2023
         {
             if (isPlaying)
             {
-                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_pause_playO.png"));
+                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Pause1.png"));
             }
             else
             {
-                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_PlayO.png"));
+                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play1.png"));
             }
             
         }
@@ -327,53 +327,53 @@ namespace PT2023
         {
             if(isPlaying)
             {
-                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_pause_play.png"));
+                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Pause.png"));
             }
             else
             {
-                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Play.png"));
+                btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play.png"));
             }
             
         }
 
         private void Stop_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnStop.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_StopO.png"));
+            btnStop.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Stop1.png"));
         }
 
         private void Stop_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnStop.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Stop.png"));
+            btnStop.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Stop.png"));
         }
 
         private void Return_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_backO.png"));
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return1.png"));
         }
 
         private void Return_MouseLeave(object sender, MouseEventArgs e)
         {
-            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_return.png"));
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return.png"));
         }
 
         private void PlaySentence_MouseEnter(object sender, MouseEventArgs e)
         {
-            PlaySentenceImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_PlayO.png"));
+            PlaySentenceImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play1.png"));
         }
         private void PlaySentence_MouseLeave(object sender, MouseEventArgs e)
         {
-            PlaySentenceImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Play.png"));
+            PlaySentenceImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play.png"));
         }
 
         private void btnAddFeedback_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnAddFeedbackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_add.png"));
+            btnAddFeedbackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Add.png"));
         }
 
         private void btnAddFeedback_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnAddFeedbackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_addO.png"));
+            btnAddFeedbackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Add1.png"));
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

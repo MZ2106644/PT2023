@@ -9,16 +9,16 @@
     <Grid Height="600" Width="800">
         <Image Source="Images/frame.png" Stretch="Fill" Margin="0,0,0,0" />
         <ComboBox Name="sessionDisplayed" SelectionChanged="sessionDisplayed_SelectionChanged" HorizontalAlignment="Left" Margin="235,26,0,0" VerticalAlignment="Top" Width="216"/>
-        <TextBlock Text="Select your rating:" Foreground="White" Margin="578, 25, 0, 0"/>
-        <StackPanel Orientation="Horizontal" Margin="578,50,0,0">
-            <RadioButton x:Name="star0" Foreground="White" Content="0" GroupName="ratingGroup" />
-            <RadioButton x:Name="star1" Foreground="White" Content="1" GroupName="ratingGroup" IsChecked="True"  />
-            <RadioButton x:Name="star2" Foreground="White" Content="2" GroupName="ratingGroup" />
-            <RadioButton x:Name="star3" Foreground="White" Content="3"  GroupName="ratingGroup" />
-            <RadioButton x:Name="star4" Foreground="White" Content="4" GroupName="ratingGroup" />
-            <RadioButton x:Name="star5" Foreground="White" Content="5" GroupName="ratingGroup" />
+        <TextBlock Text="Select your rating:" Foreground="White" Margin="558, 25, 0, 0"/>
+        <StackPanel Orientation="Horizontal" Margin="558,50,0,0">
+            <RadioButton x:Name="star0" Foreground="White" Content="0" GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star1" Foreground="White" Content="1" GroupName="ratingGroup" Margin="5" IsChecked="True"  />
+            <RadioButton x:Name="star2" Foreground="White" Content="2" GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star3" Foreground="White" Content="3"  GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star4" Foreground="White" Content="4" GroupName="ratingGroup"  Margin="5" />
+            <RadioButton x:Name="star5" Foreground="White" Content="5" GroupName="ratingGroup"  Margin="5" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="578, 70, 0, 0">
+        <StackPanel Orientation="Horizontal" Margin="558, 70, 0, 0">
             <TextBlock Text="Current Rating:" Foreground="White" Margin="5" />
             <TextBlock x:Name="currentRating" Foreground="White" Text="{Binding Path=SelectedRating, StringFormat='{}{0}/5'}" Margin="5" />
         </StackPanel>
@@ -43,9 +43,14 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="btnPlay" Source="Images/btn_Play.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Play the recorded presentation video"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="btnPlay" Source="Images/Play.png" />
         </Button>
-        <Button Name="Stop" BorderThickness="0" Background="Transparent" MouseEnter="Stop_MouseEnter" MouseLeave="Stop_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="255,450,0,0" VerticalAlignment="Top" Click="Stop_Click" Height="50" Width="57" >
+        <Button Name="Stop" BorderThickness="0" Background="Transparent" MouseEnter="Stop_MouseEnter" MouseLeave="Stop_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="255,450,0,0" VerticalAlignment="Top" Click="Stop_Click" Height="53" Width="60" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -65,7 +70,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="btnStop" Source="Images/btn_Stop.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Stop the recorded presentation video"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="btnStop" Source="Images/Stop.png" />
         </Button>
 
 
@@ -89,10 +99,15 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="ReturnImg" Source="Images/btn_return.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Return to main menu"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="ReturnImg" Source="Images/Return.png" />
         </Button>
 
-        <Label Foreground="White" Content="Practice Session" HorizontalAlignment="Left" Height="29" Margin="107,24,0,0" VerticalAlignment="Top" Width="101"/>
+        <Label Foreground="White" Content="Practice Session:" HorizontalAlignment="Left" Height="29" Margin="107,24,0,0" VerticalAlignment="Top" Width="101"/>
 
         <Label Visibility="Collapsed" Name="warningLabel" FontSize="15" Foreground="White" Content="You need to Practice at least once to review your performance" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="selectedSentences" SelectionChanged="selectedSentences_SelectionChanged" HorizontalAlignment="Left" Margin="578,137,0,0" VerticalAlignment="Top" Width="194"/>
@@ -118,7 +133,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="PlaySentenceImg" Source="Images/btn_Play.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Play the selected sentence"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="PlaySentenceImg" Source="Images/Play.png" />
         </Button>
 
         <Button Name="btnAddFeedback" BorderThickness="0" Background="Transparent" MouseEnter="btnAddFeedback_MouseEnter" MouseLeave="btnAddFeedback_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="578,0,0,30" VerticalAlignment="Bottom" Click="btnAddFeedback_Click"  Height="50" Width="50" >
@@ -141,7 +161,12 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            <Image Name="btnAddFeedbackImg"  Source="Images/btn_add.png" />
+            <Button.ToolTip>
+                <ToolTip>
+                    <TextBlock Text="Add feedback"/>
+                </ToolTip>
+            </Button.ToolTip>
+            <Image Name="btnAddFeedbackImg"  Source="Images/Add.png" />
         </Button>
         <Label Foreground="White" Content="Feedback Explanation" HorizontalAlignment="Left" Margin="578,209,0,0" VerticalAlignment="Top"/>
         <TextBox Name="TextFeedbackExplanation" Height="200" HorizontalAlignment="Left" Margin="578,239,0,0" Width="200" TextWrapping="Wrap" Text="" VerticalAlignment="Top"

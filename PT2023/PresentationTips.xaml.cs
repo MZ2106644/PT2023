@@ -78,22 +78,22 @@ namespace PT2023
         private void Return_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_backo.png"));
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return1.png"));
         }
 
         private void Return_MouseLeave(object sender, MouseEventArgs e)
         {
-            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_return.png"));
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return.png"));
         }
 
         private void Back_MouseEnter(object sender, MouseEventArgs e)
         {
-            BackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_back_o.png"));
+            BackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back1.png"));
         }
 
         private void Back_MouseLeave(object sender, MouseEventArgs e)
         {
-            BackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_back.png"));
+            BackImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Back.png"));
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -108,12 +108,12 @@ namespace PT2023
 
         private void Next_MouseEnter(object sender, MouseEventArgs e)
         {
-            NextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_nexto.png"));
+            NextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next1.png"));
         }
 
         private void Next_MouseLeave(object sender, MouseEventArgs e)
         {
-            NextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_next.png"));
+            NextImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Next.png"));
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
