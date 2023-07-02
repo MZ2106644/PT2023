@@ -81,6 +81,8 @@ namespace PT2023
             learningDesign = new LearningDesign();
 
 
+            // Hide the select/enter name return button
+            userManagement.Return.Visibility = Visibility.Collapsed;
         }
 
         #region Speech Analysis Init and delete
@@ -187,8 +189,8 @@ namespace PT2023
                     Tutor.HorizontalAlignment = SlideSelectionButton.HorizontalAlignment;
                     Tutor.VerticalAlignment = SlideSelectionButton.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness( SlideSelectionButton.Margin.Left+20, SlideSelectionButton.Margin.Top,
-                        SlideSelectionButton.Margin.Right, SlideSelectionButton.Margin.Bottom - 20);
+                    Tutor.Margin = new Thickness( SlideSelectionButton.Margin.Left+ -25, SlideSelectionButton.Margin.Top,
+                        SlideSelectionButton.Margin.Right, SlideSelectionButton.Margin.Bottom+20);
                         
                     
                     break;
@@ -196,14 +198,14 @@ namespace PT2023
                     Tutor.HorizontalAlignment = AddScriptGrid.HorizontalAlignment;
                     Tutor.VerticalAlignment = AddScriptGrid.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness(AddScriptGrid.Margin.Left + 100, AddScriptGrid.Margin.Top -50,
+                    Tutor.Margin = new Thickness(AddScriptGrid.Margin.Left + 350, AddScriptGrid.Margin.Top -80,
                         AddScriptGrid.Margin.Right, AddScriptGrid.Margin.Bottom);
                     break;
                 case LearningDesign.TaskType.PRACTICEWITHSCRIPT:
                     Tutor.HorizontalAlignment = PracticeGrid.HorizontalAlignment;
                     Tutor.VerticalAlignment = PracticeGrid.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness(PracticeGrid.Margin.Left + 100, PracticeGrid.Margin.Top - 50,
+                    Tutor.Margin = new Thickness(PracticeGrid.Margin.Left + 350, PracticeGrid.Margin.Top - 80,
                         PracticeGrid.Margin.Right, PracticeGrid.Margin.Bottom);
                     checkBoxScript.IsChecked = true;
                     break;
@@ -211,7 +213,7 @@ namespace PT2023
                     Tutor.HorizontalAlignment = PracticeGrid.HorizontalAlignment;
                     Tutor.VerticalAlignment = PracticeGrid.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness(PracticeGrid.Margin.Left + 100, PracticeGrid.Margin.Top - 50,
+                    Tutor.Margin = new Thickness(PracticeGrid.Margin.Left + 350, PracticeGrid.Margin.Top - 80,
                         PracticeGrid.Margin.Right, PracticeGrid.Margin.Bottom);
                     checkBoxScript.IsChecked = false;
                     break;
@@ -219,15 +221,22 @@ namespace PT2023
                     Tutor.HorizontalAlignment = ReviewPracticeGrid.HorizontalAlignment;
                     Tutor.VerticalAlignment = ReviewPracticeGrid.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness(ReviewPracticeGrid.Margin.Left + 100, ReviewPracticeGrid.Margin.Top - 50,
+                    Tutor.Margin = new Thickness(ReviewPracticeGrid.Margin.Left + 350, ReviewPracticeGrid.Margin.Top - 80,
                         ReviewPracticeGrid.Margin.Right, ReviewPracticeGrid.Margin.Bottom);
                     break;
                 case LearningDesign.TaskType.MEMORY:
                     Tutor.HorizontalAlignment = MemoriseScriptGrid.HorizontalAlignment;
                     Tutor.VerticalAlignment = MemoriseScriptGrid.VerticalAlignment;
 
-                    Tutor.Margin = new Thickness(MemoriseScriptGrid.Margin.Left + 100, MemoriseScriptGrid.Margin.Top - 50,
+                    Tutor.Margin = new Thickness(MemoriseScriptGrid.Margin.Left + 350, MemoriseScriptGrid.Margin.Top - 80,
                         MemoriseScriptGrid.Margin.Right, MemoriseScriptGrid.Margin.Bottom);
+                    break;
+                case LearningDesign.TaskType.PRESENTATIONTIPS:
+                    Tutor.HorizontalAlignment = PresentationTipsGrid.HorizontalAlignment;
+                    Tutor.VerticalAlignment = PresentationTipsGrid.VerticalAlignment;
+
+                    Tutor.Margin = new Thickness(PresentationTipsGrid.Margin.Left + 350, PresentationTipsGrid.Margin.Top - 80,
+                        PresentationTipsGrid.Margin.Right, PresentationTipsGrid.Margin.Bottom);
                     break;
 
             }
@@ -320,6 +329,8 @@ namespace PT2023
                 addUserMagangement();
                 isUserManagementOpened = true;
             }
+            // Make the return button visible
+            userManagement.Return.Visibility = Visibility.Visible;
         }
 
         private void Button_add_Script_Click(object sender, RoutedEventArgs e)
@@ -416,6 +427,8 @@ namespace PT2023
             presentationTips.VerticalAlignment = VerticalAlignment.Center;
             presentationTips.HorizontalAlignment = HorizontalAlignment.Center;
             presentationTips.exitEvent += PresentationTips_exitEvent;
+            Grid_for_Mode_Selection.Visibility = Visibility.Collapsed;
+            Tutor.Visibility = Visibility.Collapsed;
         }
 
 
@@ -513,6 +526,7 @@ namespace PT2023
                 presentationTips.Visibility = Visibility.Collapsed;
                 myGrid.Children.Remove(presentationTips);
                 Grid_for_Mode_Selection.Visibility = Visibility.Visible;
+                locateTutor();
             }));
         }
 

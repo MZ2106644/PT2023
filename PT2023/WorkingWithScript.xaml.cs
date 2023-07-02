@@ -83,13 +83,19 @@ namespace PT2023
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            
             doChunkstuff();
             if (SlideHandler.SlideConfigs.Count > 0)
             {
                 slideHandler.generateScript();
             }
-                
+
+            // Check if the textbox is not empty
+            if (!string.IsNullOrWhiteSpace(scriptText.Text))
+            {
+                // Show the notification message
+                MessageBox.Show("Presentation script saved successfully!", "Success!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
             exitEvent(this, "");
         }
 
@@ -378,6 +384,13 @@ namespace PT2023
         {
             // Get the text from the scriptText TextBox
             string text = scriptText.Text;
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                // Clear the sentiment label or display a default message
+                analyseTextBlock.Text = string.Empty;
+                return;
+            }
 
             // Create an instance of the SentimentIntensityAnalyzer
             var analyzer = new SentimentIntensityAnalyzer();

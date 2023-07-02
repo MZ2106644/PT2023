@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Width="600" Height="450">
-        <Image Source="Images/frame.png" Stretch="Fill" />
-        <Label Content="Folder with the slides:" HorizontalAlignment="Left" Foreground="White" Margin="52,123,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="#023047" BorderThickness="5" CornerRadius="60" Background="#219ebc" />
+        <Label Content="Folder with the slides:" HorizontalAlignment="Left" Margin="40,126,0,0" VerticalAlignment="Top" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
         <TextBox Name="textboxPath" HorizontalAlignment="Left" Margin="182,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
-        <Button Name="Button_findSlides" Click="Button_findSlides_Click" HorizontalAlignment="Left" Margin="415,127,0,0" Width="25" Height="25"  VerticalAlignment="Top" MouseEnter="Button_findSlides_MouseEnter" MouseLeave="Button_findSlides_MouseLeave" >
+        <Button Name="Button_findSlides" Click="Button_findSlides_Click" HorizontalAlignment="Left" Margin="390,122,0,0" Width="35" Height="35"  VerticalAlignment="Top" MouseEnter="Button_findSlides_MouseEnter" MouseLeave="Button_findSlides_MouseLeave" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>

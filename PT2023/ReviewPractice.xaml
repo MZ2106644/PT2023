@@ -7,20 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Height="600" Width="800">
-        <Image Source="Images/frame.png" Stretch="Fill" Margin="0,0,0,0" />
-        <ComboBox Name="sessionDisplayed" SelectionChanged="sessionDisplayed_SelectionChanged" HorizontalAlignment="Left" Margin="235,26,0,0" VerticalAlignment="Top" Width="216"/>
-        <TextBlock Text="Select your rating:" Foreground="White" Margin="558, 25, 0, 0"/>
+        <Border BorderBrush="#023047" BorderThickness="5" CornerRadius="60" Height="600" Width="800" Background="#219ebc" />
+        <ComboBox Name="sessionDisplayed" SelectionChanged="sessionDisplayed_SelectionChanged" HorizontalAlignment="Left" Margin="235,26,0,0" VerticalAlignment="Top" Width="216" Opacity="0.75"/>
+        <TextBlock Text="Select your rating:" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" Margin="558, 25, 0, 0"/>
         <StackPanel Orientation="Horizontal" Margin="558,50,0,0">
-            <RadioButton x:Name="star0" Foreground="White" Content="0" GroupName="ratingGroup" Margin="5" />
-            <RadioButton x:Name="star1" Foreground="White" Content="1" GroupName="ratingGroup" Margin="5" IsChecked="True"  />
-            <RadioButton x:Name="star2" Foreground="White" Content="2" GroupName="ratingGroup" Margin="5" />
-            <RadioButton x:Name="star3" Foreground="White" Content="3"  GroupName="ratingGroup" Margin="5" />
-            <RadioButton x:Name="star4" Foreground="White" Content="4" GroupName="ratingGroup"  Margin="5" />
-            <RadioButton x:Name="star5" Foreground="White" Content="5" GroupName="ratingGroup"  Margin="5" />
+            <RadioButton x:Name="star0" Foreground="Black" Content="0" GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star1" Foreground="Black" Content="1" GroupName="ratingGroup" Margin="5" IsChecked="True"  />
+            <RadioButton x:Name="star2" Foreground="Black" Content="2" GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star3" Foreground="Black" Content="3"  GroupName="ratingGroup" Margin="5" />
+            <RadioButton x:Name="star4" Foreground="Black" Content="4" GroupName="ratingGroup"  Margin="5" />
+            <RadioButton x:Name="star5" Foreground="Black" Content="5" GroupName="ratingGroup"  Margin="5" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="558, 70, 0, 0">
-            <TextBlock Text="Current Rating:" Foreground="White" Margin="5" />
-            <TextBlock x:Name="currentRating" Foreground="White" Text="{Binding Path=SelectedRating, StringFormat='{}{0}/5'}" Margin="5" />
+            <TextBlock Text="Current Rating:" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" Margin="5" />
+            <TextBlock x:Name="currentRating" FontFamily="{StaticResource AbrilFatfaceFont}" FontSize="13" Foreground="Black" Text="{Binding Path=SelectedRating, StringFormat='{}{0}/5'}" Margin="5" />
         </StackPanel>
         <MediaElement Name="myVideo" LoadedBehavior="Manual" UnloadedBehavior="Manual" HorizontalAlignment="Left" Height="401" Margin="48,96,0,0" VerticalAlignment="Top" Width="484"/>
         <Button Name="Play" MouseEnter="Play_MouseEnter" MouseLeave="Play_MouseLeave" BorderThickness="0" Background="Transparent" FontSize="15" HorizontalAlignment="Left" Margin="200,450,0,0" VerticalAlignment="Top" Click="Play_Click" Height="50" Width="57" >
@@ -79,7 +79,7 @@
         </Button>
 
 
-        <Button Name="Return" BorderThickness="0" Background="Transparent" MouseEnter="Return_MouseEnter" MouseLeave="Return_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="55,0,0,30" VerticalAlignment="Bottom" Click="Return_Click" Height="50" Width="57" >
+        <Button Name="Return" BorderThickness="0" Background="Transparent" MouseEnter="Return_MouseEnter" MouseLeave="Return_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="35,0,0,25" VerticalAlignment="Bottom" Click="Return_Click" Height="50" Width="57" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -107,12 +107,12 @@
             <Image Name="ReturnImg" Source="Images/Return.png" />
         </Button>
 
-        <Label Foreground="White" Content="Practice Session:" HorizontalAlignment="Left" Height="29" Margin="107,24,0,0" VerticalAlignment="Top" Width="101"/>
+        <Label Content="Practice Session:" HorizontalAlignment="Left" Height="29" Margin="107,24,0,0" VerticalAlignment="Top" Width="120" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
 
-        <Label Visibility="Collapsed" Name="warningLabel" FontSize="15" Foreground="White" Content="You need to Practice at least once to review your performance" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="selectedSentences" SelectionChanged="selectedSentences_SelectionChanged" HorizontalAlignment="Left" Margin="578,137,0,0" VerticalAlignment="Top" Width="194"/>
+        <Label Visibility="Collapsed" Name="warningLabel"  Content="You need to Practice at least once to review your performance" HorizontalAlignment="Center" Margin="0,93,0,0" VerticalAlignment="Top" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
+        <ComboBox Name="selectedSentences" SelectionChanged="selectedSentences_SelectionChanged" HorizontalAlignment="Left" Margin="578,137,0,0" VerticalAlignment="Top" Width="194" Opacity="0.75"/>
 
-        <CheckBox Name="chbSentences" IsChecked="False" Foreground="White" Content="Sentences" HorizontalAlignment="Left" Margin="578,117,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="chbSentences" IsChecked="False" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" Content="Sentences" HorizontalAlignment="Left" Margin="578,117,0,0" VerticalAlignment="Top"/>
         <Button Name="PlaySentence" BorderThickness="0" Background="Transparent" MouseLeave="PlaySentence_MouseLeave" MouseEnter="PlaySentence_MouseEnter" FontSize="15" HorizontalAlignment="Left" Margin="578,160,0,0" VerticalAlignment="Top" Click="PlaySentence_Click"  Height="30" Width="37" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -168,10 +168,10 @@
             </Button.ToolTip>
             <Image Name="btnAddFeedbackImg"  Source="Images/Add.png" />
         </Button>
-        <Label Foreground="White" Content="Feedback Explanation" HorizontalAlignment="Left" Margin="578,209,0,0" VerticalAlignment="Top"/>
+        <Label Content="Feedback Explanation:" HorizontalAlignment="Left" Margin="578,209,0,0" VerticalAlignment="Top" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
         <TextBox Name="TextFeedbackExplanation" Height="200" HorizontalAlignment="Left" Margin="578,239,0,0" Width="200" TextWrapping="Wrap" Text="" VerticalAlignment="Top"
                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" IsEnabled="True" AcceptsReturn="True"/>
         <TextBox Name="TextFeedbackKeyword" HorizontalAlignment="Left" Margin="578,482,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194"/>
-        <Label Foreground="White" Content="Feedback Keywords" HorizontalAlignment="Left" Margin="578,450,0,0" VerticalAlignment="Top"/>
+        <Label Content="Feedback Keywords:" HorizontalAlignment="Left" Margin="578,450,0,0" VerticalAlignment="Top" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
     </Grid>
 </UserControl>

@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Height="600" Width="800">
-        <Image Source="Images/frame.png" Stretch="Fill" Margin="0,0,0,0" />
+        <Border BorderBrush="#023047" BorderThickness="5" CornerRadius="60" Height="600" Width="800" Background="#219ebc" />
 
         <TextBlock Name="tipsTextBlock" FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" Background="LightGray" Text="{Binding TipsText}" VerticalAlignment="Top" Height="400" Width="600"
                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="108,97,0,0" />
         
-        <Button Name="Return" BorderThickness="0" Background="Transparent" MouseEnter="Return_MouseEnter" MouseLeave="Return_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="55,0,0,30" VerticalAlignment="Bottom" Click="Return_Click" Height="50" Width="57" >
+        <Button Name="Return" BorderThickness="0" Background="Transparent" MouseEnter="Return_MouseEnter" MouseLeave="Return_MouseLeave" FontSize="15" HorizontalAlignment="Left" Margin="35,0,0,25" VerticalAlignment="Bottom" Click="Return_Click" Height="50" Width="57" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>

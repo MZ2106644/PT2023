@@ -18,7 +18,8 @@ namespace PT2023.utilObjects
             PRACTICEWITHSCRIPT,
             PRACTICEWITHOUTSCRIPT,
             REVIEWPRESENTATION,
-            MEMORY
+            MEMORY,
+            PRESENTATIONTIPS
         };
         public LearningDesign()
         {
@@ -82,6 +83,11 @@ namespace PT2023.utilObjects
             task = new LearningTask();
             task.taskType = TaskType.REVIEWPRESENTATION;
             task.description = "Awesome work! \nLet's review it \nand see your progress.";
+            Tasks.Add(task);
+
+            task = new LearningTask();
+            task.taskType = TaskType.PRESENTATIONTIPS;
+            task.description = "Wonderful! \nNow on to something else \nGet some presentation \ntips.";
             Tasks.Add(task);
         }
 

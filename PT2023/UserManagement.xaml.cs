@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,7 +40,7 @@ namespace PT2023
 
             userGrid.Visibility = Visibility.Visible;
             presentationGrid.Visibility = Visibility.Collapsed;
-
+            Return.Visibility = Visibility.Visible; // Hide the return button initially
 
             users = new List<string>();
             presentations = new List<string>();
@@ -53,21 +54,21 @@ namespace PT2023
         private void GetDirectories()
         {
             string executingDirectory = Directory.GetCurrentDirectory();
-            // usersPath = executingDirectory + "\\users"; 
             usersPath = System.IO.Path.Combine(executingDirectory, "Users");
 
-            bool exists = System.IO.Directory.Exists(usersPath);
+            bool exists = Directory.Exists(usersPath);
 
             if (!exists)
-                System.IO.Directory.CreateDirectory(usersPath);
+                Directory.CreateDirectory(usersPath);
+
             try
             {
                 List<string> temp;
-              
+
                 temp = Directory.GetDirectories(usersPath).ToList();
                 foreach (string s in temp)
                 {
-                    int x = s.LastIndexOf("\\");
+                    int x = s.LastIndexOf(System.IO.Path.DirectorySeparatorChar);
                     users.Add(s.Substring(x + 1));
                 }
 
@@ -109,30 +110,39 @@ namespace PT2023
         {
             userNameTextBox.Text = (string)usersListBox.SelectedValue;
         }
-
+        private bool IsValidName(string name)
+        {
+            string pattern = "^[a-zA-Z0-9_-]+$"; // Valid characters: letters, numbers, underscore, and hyphen
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(name);
+        }
         private void selectButton_Click(object sender, RoutedEventArgs e)
         {
-            usersPath = System.IO.Path.Combine(usersPath, userNameTextBox.Text);
-            
-          
-          
+            if (!IsValidName(userNameTextBox.Text))
+            {
+                MessageBox.Show("Invalid characters in the name. Please use only letters, numbers, underscore, and hyphen.");
+                return;
+            }
 
-            bool exists = System.IO.Directory.Exists(usersPath);
+            usersPath = System.IO.Path.Combine(usersPath, userNameTextBox.Text);
+
+            bool exists = Directory.Exists(usersPath);
             if (!exists)
             {
-                System.IO.Directory.CreateDirectory(usersPath);
-                
+                Directory.CreateDirectory(usersPath);
             }
 
             presentationGrid.Visibility = Visibility.Visible;
             userGrid.Visibility = Visibility.Collapsed;
             getPresentationsDirectories();
             presentationsListBox.ItemsSource = presentations;
+            Return.Visibility = Visibility.Visible; // Show the return button
         }
 
         private void usersListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             SelectUserAndProceed();
+            Return.Visibility = Visibility.Visible; // Show the return button
         }
 
         private void SelectUserAndProceed()
@@ -140,12 +150,14 @@ namespace PT2023
             if (usersListBox.SelectedItem != null)
             {
                 userNameTextBox.Text = usersListBox.SelectedItem.ToString();
-                usersPath = System.IO.Path.Combine(usersPath, userNameTextBox.Text);
 
-                bool exists = System.IO.Directory.Exists(usersPath);
+                // Remove the following line, as usersPath is already set correctly
+                // usersPath = Path.Combine(usersPath, userNameTextBox.Text);
+
+                bool exists = Directory.Exists(usersPath);
                 if (!exists)
                 {
-                    System.IO.Directory.CreateDirectory(usersPath);
+                    Directory.CreateDirectory(usersPath);
                 }
 
                 presentationGrid.Visibility = Visibility.Visible;
@@ -162,6 +174,12 @@ namespace PT2023
 
         private void presentationButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsValidName(presentationNameTextBox.Text))
+            {
+                MessageBox.Show("Invalid characters in the presentation name. Please use only letters, numbers, underscore, and hyphen.");
+                return;
+            }
+
             presentationPath = System.IO.Path.Combine(tempPath, presentationNameTextBox.Text);
             usersPathScripts = System.IO.Path.Combine(presentationPath, "Scripts");
             usersPathVideos = System.IO.Path.Combine(presentationPath, "Videos");
@@ -171,25 +189,26 @@ namespace PT2023
             string scriptsPath = System.IO.Path.Combine(executingDirectory, "Scripts");
             MainWindow.scriptPath = System.IO.Path.Combine(scriptsPath, "Script.txt");
 
-
-            bool exists = System.IO.Directory.Exists(presentationPath);
+            bool exists = Directory.Exists(presentationPath);
             if (!exists)
             {
-                System.IO.Directory.CreateDirectory(presentationPath);
-                System.IO.Directory.CreateDirectory(usersPathScripts);
-                System.IO.Directory.CreateDirectory(usersPathVideos);
-                System.IO.Directory.CreateDirectory(usersPathLogs);
+                Directory.CreateDirectory(presentationPath);
+                Directory.CreateDirectory(usersPathScripts);
+                Directory.CreateDirectory(usersPathVideos);
+                Directory.CreateDirectory(usersPathLogs);
             }
-
 
             userGrid.Visibility = Visibility.Visible;
             presentationGrid.Visibility = Visibility.Collapsed;
             exitEvent(this, "");
+
+            Return.Visibility = Visibility.Visible; // Show the return button
         }
 
         private void presentationsListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             SelectPresentationAndProceed();
+            Return.Visibility = Visibility.Visible; // Show the return button
         }
 
         private void SelectPresentationAndProceed()
@@ -206,13 +225,13 @@ namespace PT2023
                 string scriptsPath = System.IO.Path.Combine(executingDirectory, "Scripts");
                 MainWindow.scriptPath = System.IO.Path.Combine(scriptsPath, "Script.txt");
 
-                bool exists = System.IO.Directory.Exists(presentationPath);
+                bool exists = Directory.Exists(presentationPath);
                 if (!exists)
                 {
-                    System.IO.Directory.CreateDirectory(presentationPath);
-                    System.IO.Directory.CreateDirectory(usersPathScripts);
-                    System.IO.Directory.CreateDirectory(usersPathVideos);
-                    System.IO.Directory.CreateDirectory(usersPathLogs);
+                    Directory.CreateDirectory(presentationPath);
+                    Directory.CreateDirectory(usersPathScripts);
+                    Directory.CreateDirectory(usersPathVideos);
+                    Directory.CreateDirectory(usersPathLogs);
                 }
 
                 userGrid.Visibility = Visibility.Visible;
@@ -243,8 +262,34 @@ namespace PT2023
             presentationButtonImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Go.png"));
         }
 
+        private void Return_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return1.png"));
+        }
+
+        private void Return_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ReturnImg.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Return.png"));
+        }
+
         #endregion
 
+        public void Return_Click(object sender, RoutedEventArgs e)
+        {
+            if (presentationGrid.Visibility == Visibility.Visible)
+            {
+                presentationGrid.Visibility = Visibility.Collapsed;
+                userGrid.Visibility = Visibility.Visible;
+                Return.Visibility = Visibility.Collapsed; // Hide the return button on the select/enter presentation name screen
+            }
+            else if (userGrid.Visibility == Visibility.Visible)
+            {
+                userGrid.Visibility = Visibility.Collapsed;
+                presentationGrid.Visibility = Visibility.Collapsed;
+                Return.Visibility = Visibility.Collapsed; // Hide the return button on the select/enter name screen
+                exitEvent?.Invoke(this, ""); // Raise the exit event to notify the parent control
+            }
+        }
 
     }
 }

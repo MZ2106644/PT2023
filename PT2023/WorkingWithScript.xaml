@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800" Background="Transparent">
     <Grid Height="600" Width="800">
-        <Image Source="Images/frame.png" Stretch="Fill" />
+        <Border BorderBrush="#023047" BorderThickness="5" CornerRadius="60" Height="600" Width="800" Background="#219ebc" />
         <TextBox Name="scriptText" Height="460" HorizontalAlignment="Left" Margin="60,39,0,0" Width="341" TextWrapping="Wrap" Text="" VerticalAlignment="Top"
                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" IsEnabled="True" AcceptsReturn="True"/>
-        <Label Content="Write the Script for your presentation" HorizontalAlignment="Left" Margin="289,5,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Write the Script for your presentation" HorizontalAlignment="Left" Margin="289,5,0,0" VerticalAlignment="Top" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
 
-        <Button Name="Button_Close" MouseEnter="Button_Close_MouseEnter" MouseLeave="Button_Close_MouseLeave" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Margin="70,0,0,25" VerticalAlignment="Bottom" Click="Button_Close_Click" Height="50" Width="55">
+        <Button Name="Button_Close" MouseEnter="Button_Close_MouseEnter" MouseLeave="Button_Close_MouseLeave" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Margin="30,0,0,25" VerticalAlignment="Bottom" Click="Button_Close_Click" Height="50" Width="55">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -88,7 +88,7 @@
             </Button.ToolTip>
             <Image Name="analyseButtonImg" Source="Images/Analyse.png" />
         </Button>
-        <Label Name="slideLabel" Content="Slides:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="444, 35, 0, 0" Foreground="White"/>
+        <Label Name="slideLabel" Content="Slides:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="444, 35, 0, 0" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
         <Image Name="slideImg" HorizontalAlignment="Left" Height="215" Margin="444,65,0,0" VerticalAlignment="Top" Width="312"/>
         <Button Name="buttonPrevious"  MouseEnter="buttonPrevious_MouseEnter" MouseLeave="buttonPrevious_MouseLeave" HorizontalAlignment="Left" Margin="525,300,0,0" VerticalAlignment="Top" Height="35" Click="buttonPrevious_Click">
             <Button.Style>
@@ -144,7 +144,7 @@
             </Button.ToolTip>
             <Image Name="nextButtonImg" Source="Images/Next.png" />
         </Button>
-        <TextBlock Text="Sentiment analysis:" Foreground="White" Margin="508, 377, 0, 0"/>
+        <TextBlock Text="Sentiment analysis:" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" Margin="508, 377, 0, 0"/>
         <TextBlock Name="analyseTextBlock" FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" Background="LightGray" Text="{Binding AnalyseText}" VerticalAlignment="Top" Height="100" Width="200"
                    ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="508,397,0,0" />
     </Grid>

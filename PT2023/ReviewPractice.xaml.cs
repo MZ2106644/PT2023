@@ -212,14 +212,14 @@ namespace PT2023
 
                     
 
-                    btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Play.png"));
+                    btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play.png"));
                     isPlaying = false;
                 }
                 else
                 {
                     
                     myVideo.Play();
-                    btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_pause_play.png"));
+                    btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Pause.png"));
                     isPlaying = true;
                 }
                
@@ -229,7 +229,7 @@ namespace PT2023
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
             myVideo.Stop();
-            btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\btn_Play.png"));
+            btnPlay.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + "\\Images\\Play.png"));
             isPlaying = false;
         }
 

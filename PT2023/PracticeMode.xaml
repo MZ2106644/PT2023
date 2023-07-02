@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1000" Background="Transparent">
     <Grid Width="1000" Height="800" >
-        <Image Source="Images/frame.png" Stretch="Fill" />
+        <Border BorderBrush="#023047" BorderThickness="5" CornerRadius="60" Height="800" Width="1000" Background="#219ebc" />
         <Image Name="myImage" HorizontalAlignment="Left" Height="599" Margin="60,60,0,0" VerticalAlignment="Top" Width="750"/>
         
-        <Button Name="Button_Pause_Play" BorderThickness="0" MouseEnter="Button_Pause_Play_MouseEnter" MouseLeave="Button_Pause_Play_MouseLeave" Background="Transparent" Height="70" Width="70" HorizontalAlignment="Left" Margin="108,700,0,0" VerticalAlignment="Top" Click="Button_Pause_Play_Click">
+        <Button Name="Button_Pause_Play" BorderThickness="0" MouseEnter="Button_Pause_Play_MouseEnter" MouseLeave="Button_Pause_Play_MouseLeave" Background="Transparent" Height="70" Width="70" HorizontalAlignment="Left" Margin="38,700,0,0" VerticalAlignment="Top" Click="Button_Pause_Play_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Transparent"/>
@@ -112,23 +112,23 @@
         </Canvas>
         <ScrollViewer Width="176" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="700" Margin="824,50,0,50" >
             <Canvas>
-                <Label Content="Posture Elements" Canvas.Left="20" Canvas.Top="5" FontWeight="Bold" Foreground="White"/>
-                <CheckBox Content="Arms Crossed" Name="CB_ArmsCrossed" Canvas.Left="30" Canvas.Top="35" IsChecked="True" Unchecked="CB_ArmsCrossed_Checked" Checked="CB_ArmsCrossed_Checked" Foreground="White"/>
-                <CheckBox Content="Legs Crossed" Name="CB_LegsCrossed" Canvas.Left="30" Canvas.Top="65" IsChecked="False" Unchecked="CB_LegsCrossed_Checked" Checked="CB_LegsCrossed_Checked" Foreground="White"/>
-                <CheckBox Content="Gestures" Name="CB_Gestures" Canvas.Left="30" Canvas.Top="95" IsChecked="True" Unchecked="CB_Gestures_Checked" Checked="CB_Gestures_Checked" Foreground="White"/>
-                <CheckBox Content="Dancing" Name="CB_Dancing" Canvas.Left="30" Canvas.Top="125" IsChecked="True" Unchecked="CB_Dancing_Checked" Checked="CB_Dancing_Checked" Foreground="White"/>
-                <CheckBox Content="Hands Visible" Name="CB_Hands" Canvas.Left="30" Canvas.Top="155" IsChecked="False" Unchecked="CB_Hands_Checked" Checked="CB_Hands_Checked" Foreground="White"/>
-                <CheckBox Content="Hands near Face" Name="CB_Hands_Face" Canvas.Left="30" Canvas.Top="185" IsChecked="True" Unchecked="CB_Hands_Face_Checked" Checked="CB_Hands_Face_Checked" Foreground="White"/>
-                <Label Content="Volume Elements" Canvas.Left="20" Canvas.Top="210" FontWeight="Bold" Foreground="White" />
-                <CheckBox Content="Speak Loud" Name="CB_Loud" Canvas.Left="30" Canvas.Top="235" IsChecked="True" Unchecked="CB_Loud_Checked"  Checked="CB_Loud_Checked" Foreground="White"/>
-                <CheckBox Content="Speak Soft" Name="CB_Soft" Canvas.Left="30" Canvas.Top="265" IsChecked="True" Unchecked="CB_Soft_Checked" Checked="CB_Soft_Checked" Foreground="White"/>
-                <CheckBox Content="Use Pauses" Name="CB_Pauses" Canvas.Left="30" Canvas.Top="295" IsChecked="True" Unchecked="CB_Pauses_Checked" Checked="CB_Pauses_Checked" Foreground="White"/>
-                <CheckBox Content="Speak" Name="CB_Speak" Canvas.Left="30" Canvas.Top="325" IsChecked="True" Unchecked="CB_Speak_Checked" Checked="CB_Speak_Checked" Foreground="White"/>
-                <Label Content="Scripts Stuff" Canvas.Left="20" Canvas.Top="360" FontWeight="Bold" Foreground="White" />
-                <CheckBox Content="Show Script" Name="CB_Show_Script" Canvas.Left="30" Canvas.Top="385" IsChecked="True" Unchecked="CB_Show_Script_Checked" Checked="CB_Show_Script_Checked" Foreground="White"/>
-                <Label Content="Manual Feedback" Canvas.Left="20" Canvas.Top="415" FontWeight="Bold" Foreground="White" />
-                <CheckBox Content="Manual Feedback" Name="CB_Manual" Canvas.Left="30" Canvas.Top="450" IsChecked="True" Unchecked="CB_Manual_Unchecked" Checked="CB_Manual_Checked" Foreground="White"/>
-                <CheckBox Content="Automatic Feedback" Name="CB_Auto" Canvas.Left="30" Canvas.Top="480" IsChecked="True" Unchecked="CB_Auto_Unchecked" Checked="CB_Auto_Checked" Foreground="White"/>
+                <Label Content="Posture Elements" Canvas.Left="20" Canvas.Top="5" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black"/>
+                <CheckBox Content="Arms Crossed" Name="CB_ArmsCrossed" Canvas.Left="30" Canvas.Top="35" IsChecked="True" Unchecked="CB_ArmsCrossed_Checked" Checked="CB_ArmsCrossed_Checked" Foreground="Black"/>
+                <CheckBox Content="Legs Crossed" Name="CB_LegsCrossed" Canvas.Left="30" Canvas.Top="65" IsChecked="False" Unchecked="CB_LegsCrossed_Checked" Checked="CB_LegsCrossed_Checked" Foreground="Black"/>
+                <CheckBox Content="Gestures" Name="CB_Gestures" Canvas.Left="30" Canvas.Top="95" IsChecked="True" Unchecked="CB_Gestures_Checked" Checked="CB_Gestures_Checked" Foreground="Black"/>
+                <CheckBox Content="Dancing" Name="CB_Dancing" Canvas.Left="30" Canvas.Top="125" IsChecked="True" Unchecked="CB_Dancing_Checked" Checked="CB_Dancing_Checked" Foreground="Black"/>
+                <CheckBox Content="Hands Visible" Name="CB_Hands" Canvas.Left="30" Canvas.Top="155" IsChecked="False" Unchecked="CB_Hands_Checked" Checked="CB_Hands_Checked" Foreground="Black"/>
+                <CheckBox Content="Hands near Face" Name="CB_Hands_Face" Canvas.Left="30" Canvas.Top="185" IsChecked="True" Unchecked="CB_Hands_Face_Checked" Checked="CB_Hands_Face_Checked" Foreground="Black"/>
+                <Label Content="Volume Elements" Canvas.Left="20" Canvas.Top="210" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" />
+                <CheckBox Content="Speak Loud" Name="CB_Loud" Canvas.Left="30" Canvas.Top="235" IsChecked="True" Unchecked="CB_Loud_Checked"  Checked="CB_Loud_Checked" Foreground="Black"/>
+                <CheckBox Content="Speak Soft" Name="CB_Soft" Canvas.Left="30" Canvas.Top="265" IsChecked="True" Unchecked="CB_Soft_Checked" Checked="CB_Soft_Checked" Foreground="Black"/>
+                <CheckBox Content="Use Pauses" Name="CB_Pauses" Canvas.Left="30" Canvas.Top="295" IsChecked="True" Unchecked="CB_Pauses_Checked" Checked="CB_Pauses_Checked" Foreground="Black"/>
+                <CheckBox Content="Speak" Name="CB_Speak" Canvas.Left="30" Canvas.Top="325" IsChecked="True" Unchecked="CB_Speak_Checked" Checked="CB_Speak_Checked" Foreground="Black"/>
+                <Label Content="Scripts Stuff" Canvas.Left="20" Canvas.Top="360" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" />
+                <CheckBox Content="Show Script" Name="CB_Show_Script" Canvas.Left="30" Canvas.Top="385" IsChecked="True" Unchecked="CB_Show_Script_Checked" Checked="CB_Show_Script_Checked" Foreground="Black"/>
+                <Label Content="Manual Feedback" Canvas.Left="20" Canvas.Top="415" FontFamily="{StaticResource AbrilFatfaceFont}" FontWeight="Bold" FontSize="13" Foreground="Black" />
+                <CheckBox Content="Manual Feedback" Name="CB_Manual" Canvas.Left="30" Canvas.Top="450" IsChecked="True" Unchecked="CB_Manual_Unchecked" Checked="CB_Manual_Checked" Foreground="Black"/>
+                <CheckBox Content="Automatic Feedback" Name="CB_Auto" Canvas.Left="30" Canvas.Top="480" IsChecked="True" Unchecked="CB_Auto_Unchecked" Checked="CB_Auto_Checked" Foreground="Black"/>
 
 
             </Canvas>
@@ -136,7 +136,7 @@
 
         <Grid Name="Grid_Pause" Visibility="Collapsed" Width="300" Height="150" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent">
             <Image Source="Images\container3.png"  Stretch="Fill"  />
-            <Label Content="Do you want to stop practicing?" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,0" Height="60"/>
+            <Label Content="Do you want to stop practicing?" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0" Height="60"/>
             <Button Name="Button_yes_Exit" MouseEnter="Button_yes_Exit_MouseEnter" MouseLeave="Button_yes_Exit_MouseLeave" BorderThickness="0" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Top" Background="Transparent" Height="60" Width="60" Margin="50,45,0,0" Click="Button_yes_Exit_Click"  >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
